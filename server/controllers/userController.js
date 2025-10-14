@@ -240,7 +240,7 @@ export const getUserConnections = async (req, res) => {
 
     const pendingConnections = await Connection.find({
       to_user_id: userID,
-      status: pending,
+      status: "pending",
     })
       .populate("from_user_id")
       .map((connection) => connection.from_user_id);
@@ -259,7 +259,7 @@ export const getUserConnections = async (req, res) => {
 };
 
 // Accept connection request
-export const acceptConnectionsRequest = async (req, res) => {
+export const acceptConnectionRequest = async (req, res) => {
   try {
     const { userID } = await req.auth();
     const { id } = req.body;
