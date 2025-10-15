@@ -71,7 +71,7 @@ export const updateUserData = async (req, res) => {
       const buffer = fs.readFileSync(cover.path);
       const response = await imagekit.upload({
         file: buffer,
-        fileName: `${Date.now()}-${cover.originalname}`,
+        fileName: profile.originalname,
       });
 
       const url = imagekit.url({
