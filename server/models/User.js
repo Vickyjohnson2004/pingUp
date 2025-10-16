@@ -13,5 +13,5 @@ const userSchema = new mongoose.Schema({
   connections: [{ type: String, ref: "User" }],
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema);
 export default User;
